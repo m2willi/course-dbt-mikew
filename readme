@@ -1,5 +1,5 @@
 How many users do we have? 130
-
+ 
 dbt=# select count(*) from users;
  count 
 -------
