@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: Info about each user including name, email, and phone number
+    columns:
+      - name: first_name
+        tests:
+          - not_null
+      - name: last_name
+        tests:
+          - not_null
+  - name: stg_addresses
+    description: Information about each customers address 
+    columns:
+      - name: address
+        tests:
+          - not_null
+      - name: zip code
+        tests:
+          - not_null
+  - name: stg_events
+    description: Information about each event 
+  - name: stg_orders
+    description: Information about each order     
+  - name: stg_order_items
+    description: Information about what items are in each order 
+  - name: stg_products
+    description: Information about each product     
+  - name: stg_promos
+    description: Information about promos    
