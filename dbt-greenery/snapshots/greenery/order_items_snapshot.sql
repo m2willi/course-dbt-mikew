@@ -2,7 +2,7 @@
 
   {{
     config(
-      target_schema='snapshots',
+      target_schema='mikew_snapshots',
       unique_key='order_id',
 
       strategy='check',

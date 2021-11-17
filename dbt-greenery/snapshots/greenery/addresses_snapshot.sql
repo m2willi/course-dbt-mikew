@@ -2,7 +2,7 @@
 
   {{
     config(
-      target_schema='snapshots',
+      target_schema='mikew_snapshots',
       unique_key='address_id',
 
       strategy='check',

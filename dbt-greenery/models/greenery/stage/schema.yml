@@ -16,9 +16,6 @@ models:
       - name: address
         tests:
           - not_null
-      - name: zip code
-        tests:
-          - not_null
   - name: stg_events
     description: Information about each event 
   - name: stg_orders
