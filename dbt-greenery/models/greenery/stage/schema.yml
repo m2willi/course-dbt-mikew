@@ -4,9 +4,9 @@ models:
   - name: stg_users
     description: Info about each user including name, email, and phone number
     columns:
-      - name: first_name
-        tests:
-          - not_null
+##      - name: first_name
+##        tests:
+##          - not_null
       - name: last_name
         tests:
           - not_null
