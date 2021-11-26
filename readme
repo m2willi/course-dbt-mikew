@@ -1,0 +1,101 @@
+How many users do we have? 130
+ 
+dbt=# select count(*) from users;
+ count 
+-------
+   130
+(1 row)
+
+On average, how many orders do we receive per hour? 16
+
+dbt=# select 
+        avg(order_count) 
+      from 
+          (select 
+              extract(hour from created_at), 
+              count(*) "order_count"  
+           from 
+            orders 
+           group by 
+            extract(hour from created_at)
+         ) x;
+         
+         avg         
+---------------------
+ 16.0000000000000000
+(1 row)
+
+On average, how long does an order take from being placed to being delivered? 3 days 22:13:10.504451
+
+dbt=# select 
+        avg(duration) 
+      from 
+          (select 
+            delivered_at - created_at  "duration"
+           from 
+           orders
+           )
+       x
+;
+          avg           
+------------------------
+ 3 days 22:13:10.504451
+(1 row)
+
+
+How many users have only made one purchase? Two purchases? Three+ purchases?
+
+ case_stmt | count 
+-----------+-------
+ 1         |    25
+ 2         |    22
+ 3 or more |    81
+
+
+dbt=# select 
+        case when order_count = 1 then '1' 
+             when order_count = 2 then '2' 
+             when order_count >= 3 then '3 or more' 
+        end "case_stmt", 
+        count(*) 
+      from 
+          (select 
+              users.user_id, 
+              count(order_id) "order_count" 
+           from 
+              users 
+           left outer join 
+                orders 
+              on users.user_id = orders.user_id 
+           group by 
+              users.user_id
+           ) 
+       x 
+       group by 
+          case_stmt;
+          
+ case_stmt | count 
+-----------+-------
+ 1         |    25
+ 2         |    22
+ 3 or more |    81
+
+On average, how many unique sessions do we have per hour? 120.5600000000000000
+
+
+dbt=# select 
+        avg(session_count) 
+      from 
+          (select 
+              extract(hour from created_at), 
+              count(distinct(session_id)) "session_count"  
+          from 
+              events 
+          group by 
+              extract(hour from created_at)
+        ) x ;
+        
+         avg          
+----------------------
+ 120.5600000000000000
+(1 row)
