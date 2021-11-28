@@ -1,0 +1,42 @@
+Week 2 questions:
+
+***********************************************************************
+What is our user repeat rate? 80.46875%
+
+Repeat Rate = Users who purchased 2 or more times / users who purchased
+
+Users who purchased
+dbt=# select count(distinct(user_id)) from dbt_mike_w.fact_user_order;
+ count 
+-------
+   128
+(1 row)
+
+Users who purchased more than one time
+Select count(distinct(user_id)) from
+(select user_id, count(distinct(order_id)) from dbt_mike_w.fact_user_order group by 1 having count(distinct(order_id)) > 1) x
+
+ count 
+-------
+   103
+(1 row)
+***********************************************************************
+
+
+What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again? 
+If you had more data, what features would you want to look into to answer this question?
+
+Likely to purchase again - I would look at what products they purchased, where they lived, if they used a promo code
+Likley to not purchase again - going to help page
+More data - return info? Customer complaints? Product ratings
+
+***********************************************************************
+
+
+Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly 
+and how you would alert stakeholders about bad data getting through.
+
+I would capture test results and publish to a table and build a dashboard on top so they could build alerting on those things they are interested in
+
+***********************************************************************
+
