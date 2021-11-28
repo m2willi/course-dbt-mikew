@@ -3,4 +3,10 @@ version: 2
 models:
   - name: dim_users
     description: User Dimension table that joins user and address
-   
+    columns:
+      - name: first_name
+        tests:
+          - not_null
+      - name: last_name
+        tests:
+          - not_null

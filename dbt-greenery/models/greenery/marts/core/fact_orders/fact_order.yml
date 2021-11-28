@@ -3,4 +3,11 @@ version: 2
 models:
   - name: fact_order
     description: Combination of order, user,  promo, and order items
+    columns:
+      - name: order_cost
+        tests:
+          - positive_values
+      - name: status
+        tests:
+          - not_null
    

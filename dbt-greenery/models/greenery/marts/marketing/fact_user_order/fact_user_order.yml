@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: fact_user_order
+    description: Combination of order, user,  promo, and order items
+   

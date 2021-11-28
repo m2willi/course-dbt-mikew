@@ -3,6 +3,8 @@ version: 2
 models:
   - name: dim_product
     description: Product Dimension table 
-   
-
-   
+    columns:
+      - name: price
+        tests:
+          - not_null
+          - positive_values  
