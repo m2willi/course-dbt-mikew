@@ -10,4 +10,5 @@ models:
       - name: status
         tests:
           - not_null
-   
+  - name: int_order_promos
+    description: Combination of order and promo 

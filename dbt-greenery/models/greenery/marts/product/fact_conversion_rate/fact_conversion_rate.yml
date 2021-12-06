@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: fact_conversion_rate
+    description: Combination of order, user,  promo, and order items
+   

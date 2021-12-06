@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: session_events_agg
+    description: Jinja example
+ 
