@@ -1,6 +1,0 @@
-version: 2
-
-models:
-  - name: fact_page_views
-    description: Combination of order, user,  promo, and order items
-   
