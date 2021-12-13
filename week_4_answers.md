@@ -31,5 +31,6 @@ how would you go about setting up a production/scheduled dbt run of your project
 > There would be full documentation on tables, column, sample sql, how to request access, point of contact so that consumers of the data would not only 
 > see how the data was moving through the system but also would have a head start on using the data.
  
+![dbt-dag](https://user-images.githubusercontent.com/7491379/145736386-ef030b30-bbcc-4cd2-91fc-393d278b95d8.png)
 
 
